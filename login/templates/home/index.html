@@ -1,0 +1,419 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Link</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<!-- Favicons (created with http://realfavicongenerator.net/)-->
+	<link rel="apple-touch-icon" sizes="57x57" href="{%static 'img/logo-active.png'%}"> 
+	<link rel="apple-touch-icon" sizes="60x60" href="{%static 'img/logo-active.png'%}">
+	<link rel="icon" type="image/png" href="{%static 'img/logo-active.png'%}" sizes="32x32">
+	<link rel="icon" type="image/png" href="{%static 'img/logo-active.png'%}" sizes="16x16">
+	<link rel="manifest" href="img/favicons/manifest.json">
+	<link rel="shortcut icon" href="img/favicons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#00a8ff">
+	<meta name="msapplication-config" content="img/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<!-- Normalize -->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/normalize.css'%}">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.css'%}">
+	<!-- Owl -->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/owl.css'%}">
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/animate.css'%}">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="{%static 'fonts/font-awesome-4.1.0/css/font-awesome.min.css'%}">
+	<!-- Elegant Icons -->
+	<link rel="stylesheet" type="text/css" href="{%static 'fonts/eleganticons/et-icons.css'%}">
+	<!-- Main style -->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/cardio.css'%}">
+	
+	<link rel="stylesheet" type="text/css" href="{%static 'css/demo.css'%}" />
+	<link rel="stylesheet" type="text/css" href="{%static 'css/component.css'%}" />
+    <script src="{%static 'js/plugins/jQuery/jQuery-2.1.4.min.js'%}"></script>
+   <script type="text/javascript">
+      $(function(){
+          $("#spec").click(function(){
+               data ={ 'csrfmiddlewaretoken': "{{ csrf_token }}", 'counter':document.getElementById("sel").value }
+              $("#replace_me").load( "{% url 'login.views.profsignup' %}",data );
+          });
+      });
+  </script>
+	</head>
+
+<body>
+	<div class="preloader">
+		<img src="{%static 'img/loader.gif'%}" alt="Preloader image">
+	</div>
+
+	<nav class="navbar">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a href="{% url 'login.views.recherche_h' %}"  class="btn btn-green">Démarrer la Recherche </a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img src="{%static 'img/logo.png'%}" data-active-url="{%static 'img/logo-active.png'%}" alt="" style="height: 60px"></a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right main-nav cl-effect-1">
+					<li><a href="#intro">Intro</a></li>
+					<li><a href="#services">Services</a></li>
+					<li><a href="#pricing">Sign Up</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">LOGIN</a></li>
+					
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+
+	<header id="intro">
+		<div class="container cnt ">
+			<div class="table">
+				<div class="header-text">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 class="light white">La Recherche d'un professionnel</h3>
+							<h1 class="white typed">n'a jamais était assez simple !</h1>
+							<span class="typed-cursor">|</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	
+
+	<section id="services" class="section section-padded">
+		<div class="container">
+			<div class="row text-center title">
+				<h2>Services</h2>
+				<h4 class="light muted">Si vous êtes un professionnel et vous chercher à faire de la publicité <br>ou si vous êtes un client à la recherche d'un professionnel <br>Vous êtes dans le bon endroit !</h4>
+			</div>
+             <div id="pricing"></div>
+			<div class="row services">
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="{%static 'img/icons/heart-blue.png'%}" alt="" class="icon">
+						</div>
+						
+						<h4 class="heading">Vous ête un professionnel</h4>
+						<p class="description">nous vous offrons la possibilité de s'inscrire gratuitement et publier vos informations sur notre application afin que les visiteurs puissent vous contacter et profiter de vos services</p><br>
+						<a href="#" data-toggle="modal" data-target="#modal2" class="description btn btn-green ">S'inscrire</a>
+						<br><br>
+						<a href="#" data-toggle="modal" data-target="#modal1" class="description btn btn-blue ">S'authentifier</a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="{%static 'img/icons/guru-blue.png'%}" alt="" class="icon">
+						</div>
+						<h4 class="heading">vous êtes un visiteur</h4>
+						<p class="description">Nous vous aidons pour trouver le professionnel le plus adéquat a vos attentes  </p><br>
+						<a href="#" data-toggle="modal" data-target="#modal3" class="description btn btn-green ">Devenir Membre</a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="{%static 'img/icons/weight-blue.png'%}" alt="" class="icon">
+						</div>
+						<h4 class="heading">vous êtes un client</h4>
+						<p class="description">chers membres vous pouvez bénificier en plus du service de recherche des fonctionalités de demende de devis, de contact avec le professionel via messages et d'évaluation des professionnels  </p><br>
+						<a href="#" data-toggle="modal" data-target="#modal1" class="description btn btn-blue ">S'authentifier</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cut cut-bottom"></div>
+	</section>
+
+	
+	<section class="section section-padded blue-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="owl-twitter owl-carousel">
+						<div class="item text-center">
+							<img src="{%static 'img/logo.png'%}" style="height: 40px">
+							<h4 class="white light">Opinion 1.</h4>
+							<h4 class="light-white light">#Great</h4>
+						</div>
+						<div class="item text-center">
+							<img src="{%static 'img/logo.png'%}" style="height: 40px">
+							<h4 class="white light">Opinion 2.</h4>
+							<h4 class="light-white light">#Great</h4>
+						</div>
+						<div class="item text-center">
+							<img src="{%static 'img/logo.png'%}" style="height: 40px">
+							<h4 class="white light">Opinion 3.</h4>
+							<h4 class="light-white light">#Great</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">LOGIN</h3>
+				<form action="{% url "login.views.connect" %}" method="post"  class="popup-form">
+					{% csrf_token %}
+					
+					<input type="text" class="form-control form-white" name="login" placeholder="login">
+					<input type="password" class="form-control form-white" name="mdp" placeholder="password">
+					
+					<button type="submit" class="btn btn-submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">S'inscrire</h3>
+				<form action="{% url "login.views.profsignup" %}" method="post" class="popup-form">
+					{% csrf_token %}
+					<div class="btn-group" data-toggle="buttons">
+        		<label class="btn btn-primary active">
+        			<input type="radio" name="type" id="Particulier" autocomplete="off" checked value="Particulier">Particulier
+        		</label>
+
+        		<label class="btn btn-primary">
+        			<input type="radio" name="type" id="Société" autocomplete="off" value="Société">Société
+        		</label>
+
+        	</div>
+
+					
+					<input type="text" class="form-control form-white" placeholder="Nom" name="nom">
+					<input type="text" class="form-control form-white" placeholder="Prénom" name="prenom">
+					<!--<input type="text" class="form-control form-white" placeholder="Nom Société" name="noms">-->
+					<input type="text" class="form-control form-white" placeholder="login" name="login">
+					<input type="text" class="form-control form-white" placeholder="Adress Email" name="email">
+					<input type="password" class="form-control form-white" placeholder="Mot de Passe" name="mdp">
+					
+					
+					 <div class="dropdown" id="spec">
+						<button  class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Catégorie
+						</button>
+						
+                        <ul class="dropdown-menu animated fadeIn scrollable-menu" role="select" aria-labelledby="dLabel" >
+							{%for cat in spec%}
+							<li class="animated lightSpeedIn"><a href="#"  onclick="myFunction({{cat.id}},'sel')">{{cat.categorie}}</a></li>
+						    {% endfor %}
+						</ul>
+					</div>
+                       <span id="replace_me">     
+							{% include "ajax1.html" %}
+					</span>
+					<input  id="sel"  type="hidden">
+					 <input  id="prof"  name="spec"  type="hidden">
+					<div class="dropdown">
+						<!--<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Sous Catégorie
+						</button>
+						
+                            <ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="dLabel">
+							{%for cat in s_spec%}
+							<li value={{cat.id}}><a>{{cat.s_categorie}}</a></li>
+						    {% endfor %}							
+						</ul>-->
+						
+					</div>	
+					
+					<button type="submit" class="btn btn-submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">Devenir membre</h3>
+				<form action="{% url 'login.views.clientsignup' %}" method="post" class="popup-form">
+
+					{% csrf_token %}
+					
+					<input type="text" class="form-control form-white" placeholder="Nom" name="nom">
+					<input type="text" class="form-control form-white" placeholder="Prénom" name="prenom">
+					<input type="text" class="form-control form-white" placeholder="login" name="login">
+					<input type="text" class="form-control form-white" placeholder="Adress Email" name="email">
+					<input type="password" class="form-control form-white" placeholder="Mot de Passe" name="mdp">
+					
+								
+					<button type="submit" class="btn btn-submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">Démarrer la recherche</h3>
+				<form action="" class="popup-form">
+					
+					<div class="dropdown">
+						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Catégorie
+						</button>
+						<ul class="dropdown-menu animated fadeIn"   role="menu" aria-labelledby="dLabel">
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							
+						</ul>
+						
+					</div>
+					<div class="dropdown">
+						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Sous Catégorie
+						</button>
+						
+                            <ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="dLabel">
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							
+						</ul>
+						
+					</div>	
+					<div class="dropdown">
+						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Gouvernorat
+						</button>
+						
+                            <ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="dLabel">
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							
+						</ul>
+						
+					</div>
+					<div class="dropdown">
+						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Délégation
+						</button>
+						
+                            <ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="dLabel">
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							<li ><a href="#">option1</a></li>
+							<li ><a href="#">option2</a></li>
+							<li ><a href="#">option3</a></li>
+							<li ><a href="#">option4</a></li>
+							
+						</ul>
+						
+					</div>
+					<button type="submit" class="btn btn-submit">Démarrer la Recherche</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 text-center-mobile">
+					<h3 class="white">Commencer maintenant votre recherche </h3>
+					<h5 class="light regular light-white">Good luck</h5>
+					<a href="#" class="btn btn-blue ripple trial-button">Up</a>
+				</div>
+				<div class="col-sm-6 text-center-mobile">
+				<img src="{%static 'img/k.gif'%}" style="height: 100px">
+				</div>
+			</div>
+			<div class="row bottom-footer text-center-mobile">
+				<div class="col-sm-8">
+					<p>&copy; 2015 All Rights Reserved. Powered by <a href="http://www.phir.co/">PHIr</a> exclusively for <a href="http://tympanus.net/codrops/">Codrops</a></p>
+				</div>
+				<div class="col-sm-4 text-right text-center-mobile">
+					<ul class="social-footer">
+						<li><a href="http://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="http://www.twitter.com/codrops"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://plus.google.com/101095823814290637419"><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Holder for mobile navigation -->
+	<div class="mobile-nav">
+		<ul>
+		</ul>
+		<a href="#" class="close-link"><i class="arrow_up"></i></a>
+	</div>
+	<!-- Scripts -->
+	
+    
+
+	<script src="{%static 'js/owl.carousel.min.js'%}"></script>
+	<script src="{%static 'js/bootstrap.min.js'%}"></script>
+	<script src="{%static 'js/wow.min.js'%}"></script>
+	<script src="{%static 'js/typewriter.js'%}"></script>
+	<script src="{%static 'js/jquery.onepagenav.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+    <script src="{%static 'js/modernizr.custom.js'%}"></script>
+</body>
+
+</html>

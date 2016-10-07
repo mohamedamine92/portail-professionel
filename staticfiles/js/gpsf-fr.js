@@ -1,0 +1,1 @@
+var lang={"latxlon":"Lat x Lon","address":"Adresse","noresult":"Non trouvé"};

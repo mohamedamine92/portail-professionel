@@ -1,0 +1,45 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block contenu %}
+
+ <section class="content">
+<div class="box box-success ">
+
+            <div class="box-header with-border ">
+              <h3 class="box-title">Vos rendez_vous </h3>
+              <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+
+              </div>
+            </div>
+            <div class="box-body" id="change">
+
+            <div class="col-md-6">
+               {% for obj in query %}
+              <div class="box box-warning">
+                <div class="box-header with-border">
+                  <h3 class="box-title">{{ obj.date }}</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="box-body"> {{ obj.time }} </div>
+                 <div class="box-footer">
+
+                     <br>
+                     <a href='{{ obj.get_absolute_url }}'><button type="submit" class="btn btn-primary btn-flat">Confirm</button></a> <a href='{{ obj.get_absolute_url1 }}'><button type="submit" class="btn btn-primary btn-flat">Delete</button></a>
+                </div>
+              </div>
+                {% endfor %}
+            </div><!-- /.box-body -->
+
+             <div class="box-footer">
+
+            </div>
+
+
+
+
+
+
+{% endblock %}

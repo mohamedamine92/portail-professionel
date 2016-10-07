@@ -1,0 +1,85 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block contenu %}
+
+ <section class="content">
+       <div class="box box-success ">
+
+            <div class="box-header with-border ">
+              <h3 class="box-title"> Demande de devis</h3>
+              <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+
+              </div>
+            </div>
+            <div class="box-body">
+
+           <div class="form-group">
+
+                      <textarea class="form-control" rows="3" placeholder="Votre Demande ..." id="text"  "></textarea>
+                    </div>
+            </div><!-- /.box-body -->
+             <div class="box-footer">
+            <form method="post" action="">
+                {% csrf_token %}
+            <input type="hidden" id="services" name="services">
+            <input type="hidden" id="services" name="id" value="{{ instance.id }}">
+            <button class="btn btn-success  btn-md" onclick="Myfoo() ; return false;"><i class="fa fa-plus margin-r-5"></i>Ajouter service</button>
+            <button type="submit" class="btn btn-success btn-md pull-right"><i class="fa fa-check-square-o margin-r-5" ></i>Confirmer</button>
+            </form>
+            </div>
+
+         </div>
+
+         <div class="box box-success ">
+
+            <div class="box-header with-border ">
+              <h3 class="box-title">Votre Demandes </h3>
+              <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+
+              </div>
+            </div>
+            <div class="box-body" id="change">
+
+
+            </div><!-- /.box-body -->
+             <div class="box-footer">
+            </div>
+
+         </div>
+         </section>
+
+        <!-- /.content -->
+        <script>
+        var i=0 ;
+        function  Myfoo(){
+
+        var id=i+1;
+        var title="service "+id ;
+        var content= document.getElementById("text").value; document.getElementById("text").value="";
+        if (content){
+        var x=document.getElementById("change").innerHTML;
+        var services=document.getElementById("services").value
+        var y='<div class="col-md-6">\
+              <div class="box box-warning">\
+                <div class="box-header with-border">\
+                  <h3 class="box-title">Service '+id+'</h3>\
+                  <div class="box-tools pull-right">\
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>\
+                  </div>\
+                </div>\
+                <div class="box-body">'+content+'</div></div>' ;
+    i=i+1 ;
+    document.getElementById("change").innerHTML=x+y ;
+    document.getElementById("services").value=services+"#"+content ;
+    }
+        }
+        </script>
+
+
+{% endblock %}
+
+
+
+

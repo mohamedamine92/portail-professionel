@@ -1,0 +1,11 @@
+ <div class="dropdown" >
+ <button   class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="problem">
+							Sous Catégorie
+						</button>
+
+ <ul class="dropdown-menu animated fadeIn scrollable-menu" role="select" aria-labelledby="dLabel" >
+            {% for sspec in s_spec %}
+            <li><a onclick="myFunc({{sspec.id}},'prof')" id="{{sspec.id}}" title="{{sspec.s_categorie}}">{{sspec.s_categorie}}</a></li>
+            {% endfor %}
+ </ul>
+ </div>

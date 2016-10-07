@@ -1,0 +1,85 @@
+{% extends "base2.html" %}
+{% block contenu %}
+
+        <!-- Main content -->
+        <section class="content">
+        <h4>
+            <small>Vous pouvez ici changer votre informations </small>
+          </h4>
+          <!-- Default box -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Remplissez cette formulaire</h3>
+              <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <form action="{% url "login.views.edit" %}" method="post"class="popup-form">
+              {% csrf_token %}
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label style="color:#40d47e" > <i class="fa fa-angle-right" ></i> Nom</label>
+                      <input type="text" class="form-control" placeholder="Nom" name='nom' style="width:300px" >
+                        <label style="color:#40d47e; margin-top:10px;" > <i class="fa fa-angle-right" ></i> Prenom</label>
+                      <input type="text" class="form-control" placeholder="Prenom" name='prenom' style="width:300px">
+                       {% if prof.type == 'Société' %}
+                        <label style="color:#40d47e;margin-top:10px;" > <i class="fa fa-angle-right" ></i> Nom societé</label>
+                      <input type="text" class="form-control" placeholder=" Nom societé" name='noms' style="width:300px" >
+                        {% endif %}
+                    <label style="color:#40d47e;margin-top:10px;" > <i class="fa fa-angle-right" ></i> Numero mobile</label>
+                      <input type="number" class="form-control" placeholder="Numero mobile" name='mobile' style="width:300px" >
+                      <label style="color:#40d47e;margin-top:10px;" > <i class="fa fa-angle-right" ></i> Numero fixe</label>
+                      <input type="number" class="form-control" placeholder="Numero fixe" name='fixe' style="width:300px">
+                      <label style="color:#40d47e;margin-top:10px;" > <i class="fa fa-angle-right" ></i> fax</label>
+                      <input type="number" class="form-control" placeholder="Fax" name='fax' style="width:300px">
+                     <label style="color:#40d47e;margin-top:10px;" > <i class="fa fa-angle-right" ></i> Description</label>
+                     <textarea class="form-control" rows="4" placeholder=" Description" style="width:360px" name="desc"></textarea>
+                     
+                     <label style="color:#40d47e;margin-top:10px;" > <i class="fa fa-angle-right" ></i> Adresse</label></br>
+                       <span id="click_me"><select   id="sel" class="selectpicker"   data-style="btn-info" data-live-search="true"  title="gouvernorat"  class="dropup" >
+                        {%for del in gouve%}
+							<option data-icon="fa fa-flag" value="{{del.id}}">{{del.nomg}}</option>
+                        {%endfor%}
+					
+                            </select>
+                    </span>        
+            
+            <select  id="replace_me" class="selectpicker" onchange="ok()"  data-style="btn-info" data-live-search="true"  title="délegation"  class="dropup" name="dele" >
+           
+    {% include "ajax.html" %}
+            </select>
+            
+                    
+                    
+                    
+						<input type="hidden" id="address" onkeydown="keyListenAddr" value="Tunis, Tunisie" />			
+						<input type="hidden" name="lat" id="lat"  onkeydown="keyListenCoord" />
+                        
+						<input type="hidden" name="lon" id="lon"  onkeydown="keyListenCoord" />
+													
+				</div>
+                    <div id="map_canvas" style="width: 100%; height: 500px"></div>
+                    </div>
+                  </div><!-- /.box-body -->
+
+                 
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+               <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Confirmer</button>
+                  </div>
+                </form>
+            </div><!-- /.box-footer-->
+          </div><!-- /.box -->
+
+        </section>
+        <script type="text/javascript">
+      function ok()
+      {
+      var x = document.getElementById("replace_me").value;
+      document.getElementById("address").value=document.getElementById(x).label ;
+      btnAddr2Gps();
+      }
+  </script>   
+{% endblock %}

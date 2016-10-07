@@ -1,0 +1,24 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+      $(function(){
+          $("#click_me").click(function(){
+               
+               data ={ 'csrfmiddlewaretoken': "{{ csrf_token }}", 'counter':document.getElementById("click_me").value ,'bo':"1" } 
+              $("#replace_me").load( "{% url 'login.views.test2' %}",data);
+          });
+      });
+      </script>
+  <h1>This is a simple page</h1>
+  
+  <select     id="click_me"    title="gouvernorat"  class="dropup" >
+                         {%for cat in spec%}
+							<option  value="{{cat.id}}">{{cat.categorie}}</option>
+                        {%endfor%}
+					
+                            </select>
+  
+  <select id="replace_me"  >
+     {% include "ajax2.html" %}
+   </select>
+  <a  href="#" name="{% url 'login.views.test2' %}">Click Me</a>
+        

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+<!--{% if envoi %}Votre message a bien été envoyé !{% endif %}
+
+<form action="{% url "login.views.profsignup" %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>-->
+{% block menu %}				
+<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">LOGIN</a></li>
+{% endblock %}
+{% block header %} 
+<div class="body"></div>
+<div class="center-page">
+
+<form action="{% url "login.views.verif_email" %}" method="post" class="popup-form">
+                     {% csrf_token %}
+			<label style="color:#ecf0f1"> *you have received an email that contains a secret code , copy it in this field to verify your email </label>	
+			<h6 style="color:#e74c3c">{{ form.login.errors }}</h6>
+			<input type="text" class="form-control form-white" placeholder="secret code" name="login"style="border-radius: 15px"  value="{{k}}" >
+			<input type="hidden" name="mdp" value="555" >		 
+					<button type="submit" class="btn btn-submit" style=" opacity: .8">Submit</button>
+</form>
+</div>
+
+{% endblock %}
+{% block body %}{% endblock %}
+{% block footer %}{% endblock %}

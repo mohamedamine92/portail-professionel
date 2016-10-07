@@ -1,0 +1,28 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block contenu %}
+
+ <section class="content">
+
+                   {% if t %}
+                       <p> valid</p>
+    {% endif %}
+                    <form method="post" action="" >
+                        {% csrf_token %}
+
+
+                    <input type="date" class="form-control" name="date">
+
+                    <input type="time" class="form-control" name="time">
+
+                     <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                        </form>
+
+
+
+
+{% endblock %}
+
+
+
+
